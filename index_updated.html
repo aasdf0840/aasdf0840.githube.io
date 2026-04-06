@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jooeun Kim · 김주은</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f9f7f4;--bg2:#ffffff;--bg3:#f0ede8;--bg4:#e8e4dd;
+  --border:rgba(0,0,0,0.07);--border2:rgba(0,0,0,0.13);
+  --text:#1a1915;--text2:#6b6760;--text3:#a09d98;
+  --green:#1a7a4a;--green2:#155f3a;--green-dim:rgba(26,122,74,0.09);
+  --gold:#8a6320;--coral:#c0503a;--blue:#2563a8;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;font-weight:400;line-height:1.7;font-size:16px;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg3)}
+::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:2px}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:1.4rem 5vw;display:flex;justify-content:space-between;align-items:center;
+  background:rgba(249,247,244,0.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:'Lora',serif;font-size:1.1rem;font-weight:300;letter-spacing:0.15em;color:var(--text);text-decoration:none}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{color:var(--text3);text-decoration:none;font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--green)}
+.nav-btn{font-size:0.72rem;letter-spacing:0.1em;color:var(--text3);padding:0.3rem 0.8rem;border:1px solid var(--border2);border-radius:999px;cursor:pointer;transition:all 0.2s;background:none;font-family:inherit}
+.nav-btn:hover{color:var(--green);border-color:var(--green)}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:0 5vw;position:relative;overflow:hidden}
+.hero-wm{position:absolute;right:-3vw;top:50%;transform:translateY(-50%);font-family:'Lora',serif;font-size:clamp(8rem,22vw,22rem);font-weight:300;font-style:italic;color:rgba(0,0,0,0.035);white-space:nowrap;pointer-events:none;user-select:none;letter-spacing:-0.04em;line-height:1}
+.hero-dots{position:absolute;left:5vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;opacity:0.35}
+.hero-dots span{width:4px;height:4px;border-radius:50%;background:var(--green);display:block}
+.hero-content{position:relative;z-index:1;padding-left:2rem}
+.hero-kicker{font-size:0.72rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--green);margin-bottom:1.4rem;display:flex;align-items:center;gap:0.8rem}
+.hero-kicker::before{content:'';display:block;width:32px;height:1px;background:var(--green)}
+.hero-name{font-family:'Lora',serif;font-size:clamp(3.8rem,7.5vw,7rem);font-weight:300;line-height:1.0;letter-spacing:-0.02em;margin-bottom:0.5rem}
+.hero-name .kr{display:block;font-size:0.38em;letter-spacing:0.18em;color:var(--text2);font-style:italic;margin-top:0.3em;font-weight:300}
+.hero-role{font-family:'Lora',serif;font-size:1.45rem;font-weight:300;font-style:italic;color:var(--gold);margin-bottom:0.4rem;letter-spacing:0.02em}
+.hero-affil{font-size:0.88rem;color:var(--text2);margin-bottom:2.2rem;letter-spacing:0.02em}
+.hero-affil a{color:var(--green);text-decoration:none}
+.hero-affil a:hover{text-decoration:underline}
+.hero-desc{max-width:540px;font-size:0.93rem;color:var(--text2);line-height:1.9;margin-bottom:2.8rem}
+.tag-row{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:3rem}
+.tag{padding:0.32rem 0.9rem;border:1px solid var(--border2);border-radius:999px;font-size:0.72rem;letter-spacing:0.08em;color:var(--text2);background:var(--bg2)}
+.tag.hi{border-color:var(--green);color:var(--green);background:var(--green-dim)}
+.tag.gd{border-color:var(--gold);color:var(--gold);background:rgba(196,164,106,0.08)}
+.btn-row{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{padding:0.72rem 1.8rem;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all 0.22s;display:inline-block;font-family:'Nunito',sans-serif;font-weight:400;cursor:pointer;border:none}
+.btn-s{background:var(--green);color:#ffffff}
+.btn-s:hover{background:var(--green2)}
+.btn-g{border:1px solid var(--border2);color:var(--text2);background:none}
+.btn-g:hover{border-color:var(--text2);color:var(--text)}
+
+section{padding:7rem 5vw;border-top:1px solid var(--border)}
+.sl{font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--green);margin-bottom:0.6rem}
+.st{font-family:'Lora',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.08;margin-bottom:0.8rem}
+.sr{width:36px;height:1px;background:var(--border2);margin-bottom:3.5rem}
+
+.rhero{background:var(--bg2);border:1px solid var(--border2);border-radius:8px;padding:3rem;margin-bottom:3rem;position:relative;overflow:hidden}
+.rhero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),transparent)}
+.rtag{display:inline-block;padding:0.28rem 0.8rem;background:var(--green-dim);border:1px solid var(--green);border-radius:999px;font-size:0.7rem;letter-spacing:0.1em;color:var(--green);margin-bottom:1.2rem}
+.rtitle{font-family:'Lora',serif;font-size:1.9rem;font-weight:300;margin-bottom:0.8rem;color:var(--text)}
+.rdesc{font-size:0.92rem;color:var(--text2);line-height:1.85;max-width:680px;margin-bottom:1.6rem}
+.rmeta{display:flex;flex-wrap:wrap;gap:2rem}
+.rmeta-item label{display:block;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);margin-bottom:0.3rem}
+.rmeta-item span{font-size:0.88rem;color:var(--text)}
+.rmeta-item a{color:var(--green);text-decoration:none;font-size:0.88rem}
+.rmeta-item a:hover{text-decoration:underline}
+
+.rcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.rcard{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.6rem;transition:border-color 0.2s}
+.rcard:hover{border-color:var(--border2)}
+.rcard-icon{width:36px;height:36px;border-radius:6px;background:var(--green-dim);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:1rem}
+.rcard h4{font-size:0.88rem;font-weight:500;margin-bottom:0.5rem;color:var(--text)}
+.rcard p{font-size:0.82rem;color:var(--text2);line-height:1.7}
+
+.info-block{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:4px;padding:1.5rem 1.8rem;margin-top:2rem}
+.info-block h4{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:0.7rem}
+.info-block p{font-size:0.85rem;color:var(--text2);line-height:1.8}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border2)}
+.ti{position:relative;margin-bottom:2.8rem}
+.ti::before{content:'';position:absolute;left:-2rem;top:0.35rem;width:7px;height:7px;border-radius:50%;background:var(--bg);border:1px solid var(--green);transform:translateX(-3px)}
+.ti.on::before{background:var(--green)}
+.ti-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0.5rem;margin-bottom:0.2rem}
+.ti-org{font-size:0.95rem;font-weight:500;color:var(--text)}
+.ti-per{font-size:0.78rem;color:var(--text3);letter-spacing:0.05em}
+.ti-role{font-family:'Lora',serif;font-style:italic;font-size:1rem;color:var(--gold);margin-bottom:0.6rem}
+.ti-loc{font-size:0.78rem;color:var(--text3);margin-bottom:0.7rem}
+.ti ul{list-style:none;padding:0}
+.ti ul li{font-size:0.85rem;color:var(--text2);line-height:1.75;padding-left:1rem;position:relative;margin-bottom:0.3rem}
+.ti ul li::before{content:'–';position:absolute;left:0;color:var(--green)}
+
+.edu-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.8rem;margin-bottom:1.2rem;transition:border-color 0.2s}
+.edu-card:hover{border-color:var(--border2)}
+.edu-card.curr{border-color:var(--green)}
+.edu-badge{display:inline-block;padding:0.2rem 0.6rem;border-radius:999px;background:var(--green-dim);color:var(--green);font-size:0.68rem;letter-spacing:0.1em;margin-bottom:0.8rem}
+.edu-deg{font-size:0.9rem;font-weight:500;color:var(--text);margin-bottom:0.2rem}
+.edu-school{font-family:'Lora',serif;font-size:1.15rem;font-style:italic;color:var(--gold);margin-bottom:0.3rem}
+.edu-meta{font-size:0.8rem;color:var(--text3)}
+
+.sg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.sg{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.4rem}
+.sg h4{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--green);margin-bottom:1rem}
+.sg ul{list-style:none}
+.sg ul li{font-size:0.84rem;color:var(--text2);padding:0.3rem 0;border-bottom:1px solid var(--border)}
+.sg ul li:last-child{border-bottom:none}
+
+.cert-row{display:flex;flex-wrap:wrap;gap:0.8rem;margin-top:1.5rem}
+.cert{padding:0.5rem 1.1rem;border:1px solid var(--border2);border-radius:4px;font-size:0.8rem;color:var(--text2);background:var(--bg2)}
+
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.cc{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.4rem;display:flex;align-items:center;gap:1rem;transition:border-color 0.2s}
+.cc:hover{border-color:var(--border2)}
+.cc-ic{width:38px;height:38px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px}
+.cc-ic.g{background:var(--green-dim)}
+.cc-ic.o{background:rgba(196,164,106,0.1)}
+.cc-l{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);margin-bottom:0.25rem}
+.cc-v{font-size:0.88rem;color:var(--text)}
+
+footer{padding:3rem 5vw;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+footer p{font-size:0.78rem;color:var(--text3)}
+.fn{font-family:'Lora',serif;font-size:1.1rem;font-weight:300;letter-spacing:0.1em;color:var(--text2)}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero-content{padding-left:0.5rem}
+  .two-col{grid-template-columns:1fr;gap:3rem}
+  section{padding:5rem 5vw}
+  .rhero{padding:2rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">JK</a>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact ↓</button>
+</nav>
+
+<section class="hero" style="border-top:none">
+  <div class="hero-dots"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="hero-wm">Ferroptosis</div>
+  <div class="hero-content">
+    <div class="hero-kicker">Graduate Researcher · KRIBB</div>
+    <h1 class="hero-name">Jooeun Kim<span class="kr">김 주 은</span></h1>
+    <p class="hero-role">Cancer Biology &amp; Functional Genomics</p>
+    <p class="hero-affil">
+      <a href="https://www.kribb.re.kr" target="_blank">한국생명공학연구원 (KRIBB)</a> &nbsp;·&nbsp;
+      <a href="https://www.ust.ac.kr" target="_blank">UST KRIBB 스쿨</a>
+    </p>
+    <p class="hero-desc">
+      현재 한국생명공학연구원 대사제어연구센터 이은우 박사 실험실의 학생연구원으로,
+      페롭토시스(Ferroptosis)를 이용한 폐암 치료 연구를 수행하고 있습니다.
+      미국에서의 5년간 임상 연구 및 의료 행정 경험을 바탕으로
+      실험실 연구와 임상 현장을 잇는 중개 연구에 관심을 갖고 있습니다.
+    </p>
+    <div class="tag-row">
+      <span class="tag hi">Ferroptosis</span>
+      <span class="tag hi">Lung Cancer</span>
+      <span class="tag hi">A549 · H1299</span>
+      <span class="tag gd">UST 석박사통합과정</span>
+      <span class="tag">기능유전체학</span>
+      <span class="tag">Clinical Research</span>
+      <span class="tag">KO / EN Bilingual</span>
+    </div>
+    <div class="btn-row">
+      <a href="#research" class="btn btn-s">Current Research ↓</a>
+      <a href="#experience" class="btn btn-g">Experience ↓</a>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="sl">Research</div>
+  <h2 class="st">현재 연구</h2>
+  <div class="sr"></div>
+
+  <div class="rhero">
+    <span class="rtag">진행 중 · 2025.07 ~</span>
+    <h3 class="rtitle">Ferroptosis를 이용한 폐암 치료 연구</h3>
+    <p class="rdesc">
+      페롭토시스(Ferroptosis)는 철(Fe) 의존적 지질 과산화에 의해 유도되는 프로그램된 세포사멸로,
+      기존 항암제에 내성을 가진 암세포에도 효과적인 새로운 치료 전략으로 주목받고 있습니다.
+      KRIBB 대사제어연구센터는 2020년 PNAS에 위암에서의 페롭토시스 기전 및 불포화지방산 합성경로(ELOVL5·FADS1)의
+      중요성을 밝힌 바 있으며, 현재 폐암세포주 A549 및 H1299를 모델로 한 연구를 진행 중입니다.
+    </p>
+    <div class="rmeta">
+      <div class="rmeta-item"><label>PI</label><span>이은우 박사 (Dr. Eunwoo Lee)</span></div>
+      <div class="rmeta-item"><label>소속</label><span>대사제어연구센터, KRIBB</span></div>
+      <div class="rmeta-item"><label>세포주</label><span>A549 · H1299 (폐암)</span></div>
+      <div class="rmeta-item"><label>소속 학교</label><a href="https://www.ust.ac.kr" target="_blank">UST KRIBB 스쿨</a></div>
+    </div>
+  </div>
+
+  <div class="rcards">
+    <div class="rcard">
+      <div class="rcard-icon">🔬</div>
+      <h4>Ferroptosis 기전 연구</h4>
+      <p>GPX4 억제, 지질 과산화 축적, 철 대사 조절을 통한 암세포 선택적 사멸 기전 규명. ELOVL5·FADS1 등 불포화지방산 합성경로와의 연관성 탐색.</p>
+    </div>
+    <div class="rcard">
+      <div class="rcard-icon">🫁</div>
+      <h4>폐암세포주 모델</h4>
+      <p>A549 (KRAS G12S 돌연변이) 및 H1299 (p53 결손) 폐암세포주를 이용한 in vitro 실험. 기존 항암제 내성 극복 가능성 평가.</p>
+    </div>
+    <div class="rcard">
+      <div class="rcard-icon">💊</div>
+      <h4>항암 치료 전략</h4>
+      <p>Ferroptosis 유도제(RSL3, Erastin 등)의 세포독성 평가. 암세포와 정상세포 간 선택적 사멸 조건 최적화 연구.</p>
+    </div>
+    <div class="rcard">
+      <div class="rcard-icon">🏆</div>
+      <h4>이은우 박사 실험실</h4>
+      <p>KRIBB 대사제어연구센터. PNAS 2020 위암 페롭토시스 연구 성과. 이상철·이은우 박사팀이 주도하는 지질체학·대사 신약 개발 분야 선도 연구그룹.</p>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h4>UST KRIBB 스쿨 · 기능유전체학 전공</h4>
+    <p>
+      과학기술연합대학원대학교(UST)는 30개 정부출연연구기관이 공동 운영하는 국가연구소대학(대전광역시 유성구, 2003 설립)입니다.
+      KRIBB 스쿨은 한국생명공학연구원과 UST가 공동 설립한 교육조직으로 167명 교원·251명 학생이 재학 중이며,
+      기능유전체학 전공은 유전자 기능 규명 기술을 통해 인체질환 관련 유전자 기전을 연구하여 미래의학 실현에 기여합니다.
+      학생연구원은 KRIBB의 첨단 연구 인프라를 활용해 국책 프로젝트를 직접 수행합니다.
+    </p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="sl">Experience</div>
+  <h2 class="st">경력</h2>
+  <div class="sr"></div>
+
+  <div class="two-col">
+    <div>
+      <h3 style="font-family:'Lora',serif;font-size:1.3rem;font-weight:300;color:var(--text2);margin-bottom:2rem;letter-spacing:0.05em">연구 경력</h3>
+      <div class="timeline">
+
+        <div class="ti on">
+          <div class="ti-head">
+            <span class="ti-org">한국생명공학연구원 (KRIBB)</span>
+            <span class="ti-per">2025.07 ~ 현재</span>
+          </div>
+          <div class="ti-role">학생연구원 (UST) / 인턴연구원</div>
+          <div class="ti-loc">📍 대전광역시 유성구, 대한민국</div>
+          <ul>
+            <li>Ferroptosis 기반 폐암 치료 연구 수행</li>
+            <li>A549, H1299 폐암세포주 이용 실험</li>
+            <li>대사제어연구센터 이은우 박사 실험실 소속</li>
+            <li>UST KRIBB 스쿨 기능유전체학 석박통합과정 (2026.03 입학)</li>
+          </ul>
+        </div>
+
+        <div class="ti">
+          <div class="ti-head">
+            <span class="ti-org">Celltrion USA</span>
+            <span class="ti-per">2021.03 – 2021.12</span>
+          </div>
+          <div class="ti-role">Clinical Research Assistant</div>
+          <div class="ti-loc">📍 Jersey City, New Jersey, USA</div>
+          <ul>
+            <li>COVID-19 자가검사 신속진단키트 임상연구 보조</li>
+            <li>IRB 제출서류 및 환자 등록 문서(프로토콜·동의서·비밀유지협약) 준비·관리</li>
+            <li>피험자 스크리닝·모집 및 비인두 도말 검체 채취</li>
+            <li>임상 데이터 수집·정리, 오류 식별·수정</li>
+          </ul>
+        </div>
+
+        <div class="ti">
+          <div class="ti-head">
+            <span class="ti-org">Molecular Biology Lab, 한남대학교</span>
+            <span class="ti-per">2018.11 – 2019.12</span>
+          </div>
+          <div class="ti-role">학부연구생</div>
+          <div class="ti-loc">📍 대전광역시 유성구, 대한민국</div>
+          <ul>
+            <li>Cypress 추출물 및 라벤더 오일 항균 효과 연구 (Paper disk법, MIC)</li>
+            <li>NGS를 이용한 고양이(Felis catus) 장내 미생물총 분석</li>
+          </ul>
+        </div>
+
+        <div class="ti">
+          <div class="ti-head">
+            <span class="ti-org">BIOPS</span>
+            <span class="ti-per">2017.03 – 2018.02</span>
+          </div>
+          <div class="ti-role">학부연구생</div>
+          <div class="ti-loc">📍 대전광역시 유성구, 대한민국</div>
+          <ul>
+            <li>Animal Cell Culture, MTT Assay</li>
+            <li>PCR, Western Blot, HPLC</li>
+            <li>연구 데이터 정리 및 분석</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <h3 style="font-family:'Lora',serif;font-size:1.3rem;font-weight:300;color:var(--text2);margin-bottom:2rem;letter-spacing:0.05em">임상·의료 경력</h3>
+      <div class="timeline">
+
+        <div class="ti">
+          <div class="ti-head">
+            <span class="ti-org">Advanced Shoulder and Knee</span>
+            <span class="ti-per">2024.12 – 2025.07</span>
+          </div>
+          <div class="ti-role">Medical Assistant</div>
+          <div class="ti-loc">📍 Closter, New Jersey, USA</div>
+          <ul>
+            <li>10,000명 이상 환자 의무기록 관리 (정확한 의학용어 사용)</li>
+            <li>500명 이상 활성 환자 예약 및 스케줄 관리</li>
+            <li>수술 전·후 환자 교육 및 임상 보조 업무</li>
+            <li>전자·종이 의무기록 유지·관리</li>
+          </ul>
+        </div>
+
+        <div class="ti">
+          <div class="ti-head">
+            <span class="ti-org">Joy Internal Medicine</span>
+            <span class="ti-per">2020.03 – 2024.05</span>
+          </div>
+          <div class="ti-role">Office Manager / Operation Manager</div>
+          <div class="ti-loc">📍 Englewood Cliffs / Edgewater, New Jersey, USA</div>
+          <ul>
+            <li>JOY COVID-19 Testing Center 설립·운영</li>
+            <li>30,000건 이상 환자 기록 체계화 관리</li>
+            <li>일 평균 60건 이상 전화 응대</li>
+            <li>Bodytech Inc. COVID-19·HbA1C 신속진단키트 임상연구 보조</li>
+            <li>Mico Bio USA COVID-19 자가검사키트 임상연구 보조</li>
+            <li>3명의 NP·의사와 협력, 원내 정책·절차 수립</li>
+            <li>한국어권 환자 의료 통역 및 의사소통 지원</li>
+            <li>NAS 서버 구축·유지, 전화 시스템 설치 등 기술 지원</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="sl">Education</div>
+  <h2 class="st">학력</h2>
+  <div class="sr"></div>
+
+  <div class="edu-card curr">
+    <span class="edu-badge">재학 중</span>
+    <div class="edu-deg">생명과학 — 기능유전체학 전공 · 석·박사 통합과정</div>
+    <div class="edu-school">UST (과학기술연합대학원대학교) · KRIBB 스쿨</div>
+    <div class="edu-meta">대전광역시 유성구, 대한민국 · 2026.03 입학</div>
+    <div class="info-block" style="margin-top:1rem;border-left-color:var(--green)">
+      <h4 style="color:var(--green)">UST KRIBB 스쿨</h4>
+      <p>
+        UST는 30개 정부출연연구기관이 공동 운영하는 과학기술정보통신부 직할 국가연구소대학입니다 (2003년 설립, 대전광역시 유성구, 대한민국).
+        KRIBB 스쿨은 한국생명공학연구원(KRIBB)의 167명 교원·251명 학생이 소속된 스쿨로,
+        기능유전체학·생명정보학·생체분자과학·단백체구조생물학·나노바이오공학 등 9개 전공을 운영합니다.
+        학생들은 KRIBB의 첨단 연구 인프라와 장비를 활용해 국책 프로젝트를 직접 수행하는
+        현장 중심 연구 교육을 받으며, 이론과 실무를 겸비한 글로벌 바이오 전문인재를 양성합니다.
+      </p>
+    </div>
+  </div>
+
+  <div class="edu-card">
+    <div class="edu-deg">Associate of Science — Sciences &amp; Math, Biology</div>
+    <div class="edu-school">Bergen Community College</div>
+    <div class="edu-meta">Paramus, New Jersey, USA · 2023.03 – 2025.05</div>
+    <div class="info-block" style="margin-top:1rem;border-left-color:var(--blue)">
+      <h4 style="color:var(--blue)">Bergen Community College</h4>
+      <p>미국 뉴저지주 버겐 카운티에 위치한 공립 커뮤니티 칼리지로, 뉴저지 최대 규모의 커뮤니티 칼리지 중 하나입니다. 생물학 전공으로 이수하며 미국 의료 현장 근무와 병행해 과학 기초 역량을 강화하였습니다.</p>
+    </div>
+  </div>
+
+  <div class="edu-card">
+    <div class="edu-deg">학사 · 생명시스템과학 (Life System Science)</div>
+    <div class="edu-school">한남대학교 (Hannam University)</div>
+    <div class="edu-meta">대전광역시 유성구, 대한민국 · 2015.03 – 2021.02</div>
+    <div class="info-block" style="margin-top:1rem;border-left-color:var(--gold)">
+      <h4 style="color:var(--gold)">한남대학교 생명시스템과학과</h4>
+      <p>대전 대덕구에 위치한 한남대학교 자연과학대학 생명시스템과학과에서 학부 과정을 이수하였습니다. 분자생물학, 세포생물학, 유전학 등 생명과학 기초 과정과 함께 분자생물학 실험실에서 학부연구생으로 NGS 기반 미생물총 분석 및 항균 효과 연구에 참여하였습니다.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="contact">
+  <div class="sl">Contact</div>
+  <h2 class="st">연락처</h2>
+  <div class="sr"></div>
+
+  <div class="cg">
+    <div class="cc">
+      <div class="cc-ic g">📧</div>
+      <div>
+        <div class="cc-l">Email</div>
+        <div class="cc-v"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3a5b5b495e5c0a020e0a7a5d575b535614595557">[email&#160;protected]</a></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-ic g">📞</div>
+      <div>
+        <div class="cc-l">Phone (Korea)</div>
+        <div class="cc-v">(+82) 10-3855-0840</div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-ic o">🏛️</div>
+      <div>
+        <div class="cc-l">소속 기관</div>
+        <div class="cc-v">KRIBB 대사제어연구센터</div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-ic o">📍</div>
+      <div>
+        <div class="cc-l">주소</div>
+        <div class="cc-v">대전광역시 유성구 과학로 125</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="fn">Jooeun Kim · 김주은</span>
+  <p>© 2025 Jooeun Kim · KRIBB / UST KRIBB School · Daejeon, Yuseong-gu, Republic of Korea</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
+    }
+  });
+},{threshold:0.08});
+document.querySele
